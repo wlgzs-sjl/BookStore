@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <style>
+        body{
+            background-image: url("../../static/images/02.jpg");
+        }
+        .container>form {
+            margin:20px auto;
+            width: 1300px;
+            /* border: 1px solid #ccc; */
+            padding: 20px 20px 30px;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .container>form tr td{
+            font-size: 16px;
+            padding-right: 20px;
+        }
+        .btn{
+        	padding: 0 14px;
+		    color: white;
+		    height: 26px;
+		    line-height: 26px;
+		    text-align: center;
+		    font-size: 13px;
+		    border-radius: 2px;
+		    margin-right: 10px;
+    		display: inline-block;
+        }
+        .add{
+        	background-color: #009688;
+        }
+        .search{
+        	background-color: #009688;
+        }
+        .edit{
+        	background-color: #009688;
+        }
+        .delete{
+        	background-color: #FF5722;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="title">
+        <p>
+            搜索结果
+        </p>
+    </div>
+    <div class="container">
+        <form>
+            <table >
+                <a href="../../book">返回首页</a>
+                <tr>
+                    <th>编号</th>
+                    <th>书名</th>
+                    <th>作者</th>
+                    <th>类型</th>
+                    <th>价格</th>
+                    <th>出版社</th>
+                    <th>操作</th>
+                </tr>
+                {% for book in books %}
+                <tr>
+                    <td align="center">{{ forloop.counter }} </td>
+                    <td align="center">{{ book.book_name }} </td>
+                    <td align="center">{{ book.book_author }} </td>
+                    <td align="center">{{ book.book_type }}</td>
+                    <td align="center">{{ book.book_price }}</td>
+                    <td align="center">{{ book.book_press }} </td>
+                    <td align="center">
+                        <a class="btn edit" href="../book/edit/?id={{ book.id }}">
+                            编辑
+                        </a>
+                        <a class="btn delete" href="../book/delete/?id={{ book.id }}">
+                            删除
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

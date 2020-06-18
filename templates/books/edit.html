@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书编辑页面</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <style>
+        body{
+            background-image: url("../../static/images/01.JPG");
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="title">
+        <p>
+            图书编辑页面
+        </p>
+    </div>
+    <div class="container">
+        <form method="post" action="../edit/" >
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ book.id }}"/>
+
+            <table>
+                <tr>
+                    <th>书名：</th>
+                    <td>
+                        <input name="book_name" value="{{ book.book_name }}" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>作者：</th>
+                    <td>
+                        <input name="book_author" value="{{ book.book_author }}" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>类型：</th>
+                    <td>
+                        <input name="book_type" value="{{ book.book_type }}" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>价格：</th>
+                    <td>
+                        <input name="book_price" value="{{ book.book_price }}" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <th>出版社：</th>
+                    <td>
+                        <input name="book_press" value="{{ book.book_press }}" class="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" class="submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
